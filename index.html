@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>郭芯彤的履歷網站</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      background-color: #005fa3;
+      text-align: center;
+      padding: 0.5rem;
+    }
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+    }
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      margin-top: 1rem;
+      border-radius: 10px;
+    }
+    h2 {
+      color: #0077cc;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #eee;
+      margin-top: 2rem;
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 0.5rem;
+      }
+      section {
+        padding: 1rem;
+      }
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+    }
+
+    /* 輪播區 */
+    .slider {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+      margin: 1rem auto;
+      border-radius: 12px;
+      border: 4px solid #0077cc;
+    }
+    .slider-track {
+      display: flex;
+      transition: transform 0.5s ease;
+      width: 400px;
+    }
+    .slider-track img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+    }
+    .dots {
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+    .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 0 5px;
+      background-color: #ccc;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .dot.active {
+      background-color: #0077cc;
+    }
+
+    /* 按鈕：黃色 */
+    .button {
+      padding: 0.5rem 1rem;
+      background-color: #ffcc00; /* 修改為黃色 */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* 模態視窗 */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+    }
+    .modal-content {
+      background-color: white;
+      margin: 10% auto;
+      padding: 1rem;
+      border: 1px solid #888;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      border-radius: 10px;
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover {
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>郭芯彤的履歷與職涯探索 </h1>
+  </header>
+
+  <nav>
+    <a href="#intro">自我介紹 </a>
+    <a href="#job">職缺說明 </a>
+    <a href="#resume">自傳履歷 </a>
+    <a href="#plan">未來規劃 </a>
+  </nav>
+
+  <section id="intro">
+  <h2 style="display: flex; align-items: center;">
+    自我介紹
+    <img src="logo2.jpg" alt="自我介紹插圖" style="width: 40px; height: 40px; margin-left: 10px;" />
+  </h2>
+
+  <div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between;">
+    
+    <!-- 文字內容 -->
+    <div style="flex: 1; min-width: 280px; padding-right: 1rem;">
+      <p>我是就讀資管系的大二學生，對於資訊科技有深厚的興趣，並且特別喜愛將理論應用於實際專案中。透過課堂學習與自我探索，我發現自己對軟體開發、資料庫管理及系統設計等領域尤為感興趣，並且樂於挑戰自我。</p>
+      <p>在過去的學習過程中，我參與過數個小型專案，無論是資料庫設計、簡易網站開發或是程式設計，我都能積極投入並與團隊成員合作，完成既定目標。我不僅重視問題的解決，更注重過程中的學習與成長，這讓我對自己所學的領域保持高度的熱情與投入。</p>
+      <p>除了學術知識，我還積極參加各類與資訊科技相關的比賽與工作坊，這些經歷讓我能在實際應用中不斷提升自己的技能，並讓我更清楚自己未來的職業方向。</p>
+      <p>我的優勢在於對技術的敏銳觸覺，能夠快速學習新技術並將其融入實際工作中。我深信，持續的學習與不斷的實踐，會是我達成職業目標的關鍵。</p>
+    </div>
+
+    <!-- 照片輪播 -->
+    <div style="width: 220px; margin-top: 1rem;">
+      <div class="slider">
+        <div class="slider-track" id="sliderTrack">
+          <img src="photo1.jpg" alt="郭芯彤個人照片1" />
+          <img src="photo2.jpg" alt="郭芯彤個人照片2" />
+        </div>
+      </div>
+      <div class="dots" style="margin-bottom: 1rem;">
+        <span class="dot active" onclick="goToSlide(0)"></span>
+        <span class="dot" onclick="goToSlide(1)"></span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+  <!-- 🔸 職涯測驗 -->
+  <section id="career-test">
+    <h2>職涯測驗 🧠</h2>
+    <p>
+      根據 104 生涯興趣測驗，我的興趣何倫碼為 <strong>A 藝術型 × S 社會型</strong>，適合從事富有創意且關懷人的工作。
+    </p>
+    <!-- ⬇️ 按鈕放在段落下面 ⬇️ -->
+    <div style="margin-top: 1.5rem; text-align: center;">
+      <button class="button" onclick="openModal()">興趣測驗 📸</button>
+    </div>
+  </section>
+
+  <!-- 🔸 模態視窗：興趣測驗圖片 -->
+  <div id="interestModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img src="興趣測驗.jpg" alt="興趣測驗結果" style="width: 100%; border-radius: 10px;" />
+    </div>
+  </div>
+
+  <!-- 🔸 職缺說明 -->
+ 
+<section id="job">
+  <h2>有興趣的 MIS 職缺💼</h2>
+  
+  <!-- 公司名稱與圖片排版 -->
+  <div style="display: flex; align-items: center;">
+    <h3 style="margin-right: 1rem;">軟體工程師 - 彩富電子股份有限公司</h3>
+    <img src="logo.gif" alt="彩富電子 logo" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;" />
+  </div>
+  
+  <p><strong>工作內容：</strong></p>
+  <ul>
+    <li>作為產品工程設計團隊的一員，軟體工程師，須與大家一起驅動新產品的開發，工作重點放在嵌入式系統軟體設計與開發。</li>
+  </ul>
+  
+  <p><strong>主要負責：</strong></p>
+  <ul>
+    <li>嵌入式系統軟體設計與開發</li>
+    <li>流媒體伺服器設計與開發</li>
+    <li>Web伺服器設計與開發</li>
+    <li>Web Client設計與開發</li>
+    <li>MCU程式設計與開發</li>
+  </ul>
+</section>
+
+
+
+  <!-- 🔸 自傳履歷 -->
+  <section id="resume">
+  <h2>自傳與履歷 📝</h2>
+   <p>我對資訊管理充滿興趣，曾在課堂中完成資料庫設計與簡易網頁開發專題，喜歡動手實作與解決問題的成就感。</p>
+    <p>我樂於團隊合作，且具備耐心與細心的特質，這些能力都非常適合 MIS 領域需要的系統規劃與管理職務。</p>
+  
+
+  <h3>我的技能範疇包括：</h3>
+  <ul>
+    <li>程式設計：略懂Java、Python 等語言，並且有實際開發經驗。</li>
+    <li>網頁開發：熟悉 HTML、CSS、JavaScript，並且能夠開發簡單的前端應用。</li>
+    <li>團隊合作與溝通：能夠在團隊中積極發揮作用，並且具備良好的溝通能力。</li>
+  </ul>
+
+  <p>未來，我希望能夠進一步深入學習嵌入式系統與軟體開發領域，並將所學的技能應用於實際的工作中。我期待能在一個充滿挑戰與學習機會的環境中，發揮我的潛力，並為團隊帶來價值。</p>
+
+  <h3>學歷</h3>
+  <ul>
+    <li>靜宜大學 資訊管理學系 大二 (2023年入學)</li>
+    <li>國立岡山高級中學  (2020)</li>
+  </ul>
+</section>
+
+
+  <!-- 🔸 未來學習與成長規劃 -->
+<section id="plan">
+  <h2>未來的學習與成長規劃 🚀</h2>
+  <ul>
+    <li>修習嵌入式系統設計與開發，深入學習嵌入式 C/C++ 程式設計，並掌握微控制器 (MCU) 設計。</li>
+    <li>學習流媒體伺服器設計與開發，掌握流媒體傳輸協議並進行伺服器優化。</li>
+    <li>修習 Web 伺服器與 Web 客戶端開發，學習如何設計高效的網頁伺服器與現代化前端應用。</li>
+    <li>學習影像處理原理，掌握數位影像處理技術與計算機視覺。</li>
+    <li>增強英語能力，特別是在技術領域中提高聽、說、讀、寫的英語水平。</li>
+    <li>提升團隊合作與溝通能力，學習如何在跨部門的協作中發揮影響力，並學習領導力。</li>
+    <li>參與開源專案或實習，將所學應用於實務，並擴展工作經驗。</li>
+    <li>提升 C/C++ 程式設計技能，並學習使用 Linux 和 Windows 系統進行程式開發。</li>
+  </ul>
+</section>
+
+
+  <footer>
+    <p>聯絡信箱📧：xxtong28@gmail.com </p>
+    <p>© 2025 郭芯彤</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // 模態視窗控制
+    function openModal() {
+      document.getElementById("interestModal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("interestModal").style.display = "none";
+    }
+
+    // 輪播控制
+    let currentSlide = 0;
+    const sliderTrack = document.getElementById("sliderTrack");
+    const dots = document.querySelectorAll(".dot");
+
+    function showSlide(index) {
+      sliderTrack.style.transform = `translateX(-${index * 200}px)`;
+      dots.forEach(dot => dot.classList.remove("active"));
+      dots[index].classList.add("active");
+      currentSlide = index;
+    }
+
+    function nextSlide() {
+      let next = (currentSlide + 1) % 2;
+      showSlide(next);
+    }
+
+    function goToSlide(index) {
+      showSlide(index);
+    }
+
+    setInterval(nextSlide, 3000); // 每 3 秒切換
+  </script>
+
+</body>
+</html>
